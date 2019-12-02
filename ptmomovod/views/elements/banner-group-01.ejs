@@ -1,0 +1,33 @@
+<div class="hy-layout clearfix">
+	<div class="clearfix">
+		<div class="col-md-7 col-sm-12 col-xs-12">
+			<div class="swiper-container hy-slide">
+				<%- include('./banner-conveyor',{data: imgdata}); %>
+			</div>
+		</div>
+		<div class="col-md-5 col-sm-12 col-xs-12" style="padding: 10px 0 0;">
+			<div class="hidden-sm hidden-xs clearfix">
+				<div class="hy-video-min-head hidden-md">
+					<a href="/label-top.html" class="pull-right text-muted">更多<i class="icon iconfont icon-right"></i></a>
+					<h4><i class="icon iconfont icon-top text-color"></i>電影排行榜</h4>
+				</div>
+				<div class="clearfix">
+					<div class="col-lg-4 hidden-md">
+						<div class="hy-video-list">
+							<div class="item"><a class="videopic lazy" href="/vod-detail-id-105245.html" title="X戰警：黑鳳凰" data-original="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://www.momovod.com/upload/vod/2019-06-06/155979552618.jpg" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://www.momovod.com/template/nec/i/img/load.gif) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span></a></div>
+						</div>
+					</div>
+					<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 padding-0">
+						<div class="hy-video-ranking clearfix" style="padding:0 10px 10px;">
+							<div class="item">
+								<ul class="clearfix"><% for (var i = 1; i <= 7; i++) { %>
+								    <li class="text-overflow"><a href="/vod-detail-id-105245.html" title="X戰警：黑鳳凰"><% if(i<=3){ %><em class="number active"><% } else { %><em class="number"><% } %><%- i %></em>X戰警：黑鳳凰</a></li><% } %>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

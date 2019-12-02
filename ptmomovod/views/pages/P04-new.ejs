@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<div class="hy-layout clearfix">
+			<div class="hy-switch-tabs active">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#list" data-toggle="tab">最近更新</a></li>
+					<li><a href="#list1" data-toggle="tab">電影</a></li>
+					<li><a href="#list2" data-toggle="tab">电视剧</a></li>
+					<li><a href="#list3" data-toggle="tab">综艺</a></li>
+					<li><a href="#list4" data-toggle="tab">动漫</a></li>
+				</ul>
+			</div>
+			<div class="tab-content">
+				<div class="tab-pane fade in active" id="list">
+					<%- include('../elements/list-body-list-new',{data: ''}); %>
+				</div>
+				<div class="tab-pane fade in" id="list2">
+					<%- include('../elements/list-body-list-new',{data: ''}); %>
+				</div>
+				<div class="tab-pane fade in" id="list1">
+					<%- include('../elements/list-body-list-new',{data: ''}); %>
+				</div>
+				<div class="tab-pane fade in" id="list4">
+					<%- include('../elements/list-body-list-new',{data: ''}); %>
+				</div>
+				<div class="tab-pane fade in" id="list3">
+					<%- include('../elements/list-body-list-new',{data: ''}); %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

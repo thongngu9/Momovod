@@ -1,0 +1,11 @@
+<div class="swiper-wrapper">
+	<% if(typeof data != 'undefined' && data) { %>
+	<% data.forEach(function(item){ %>
+	<div class="swiper-slide">
+		<div class="hy-video-slide"><a class="videopic" href="/vod-detail-id-<%= item.id %>.html" title="<%= item.title %>" style="<%- (typeof format != "undefined" ? 'padding-top: 60%; ' : "") %>background: url(<%= item.url %>) no-repeat; background-position:50% 50%; background-size: cover;"><span class="title"><%= item.title %></span></a></div>
+	</div>
+	<% }) %><% } %>
+</div>
+<div class="swiper-button-next hidden-xs"><i class="icon iconfont icon-right"></i></div>
+<div class="swiper-button-prev hidden-xs"><i class="icon iconfont icon-back"></i></div>
+<div class="swiper-pagination"></div>

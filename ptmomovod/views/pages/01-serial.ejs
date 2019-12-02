@@ -1,0 +1,21 @@
+<div class="container"><div class="row">
+<% if(typeof banner != 'undefined' && banner) { %>
+<% if(banner.type == 1) { %>
+<%- include('../elements/banner-group-01', {format: true, imgdata: banner.data}); %>
+<% } else if(banner.type == 2) { %>
+<%- include('../elements/banner-group-02', {imgdata: banner.data}); %>
+<% } %><% } %>
+<% if(typeof menu != 'undefined' && menu) { %>
+<% if(menu.type == 1) { %>
+<%- include('../elements/menu-body-01', {data: menu.data}); %>
+<% } else if(menu.type == 2) { %>
+<%- include('../elements/menu-body-02', {data: menu.data}); %>
+<% } else { %>
+<%- include('../elements/menu-body-03', {data: menu.data}); %>
+<% } %><% } %>
+<%- include('../elements/conveyor-group-01',{title: '大家都在看', data: ''}); %>
+<div class="ad momo-ad-row top-ad" data-momoad data-sizeall="970x250 728x90 300x250" data-containerstyle="padding: 0;margin-top: 5px; margin-bottom: -20px;text-align:center"></div>
+<div class="ja-guanggao jav-link" style="display:none;padding: 0;margin-top: 5px;text-align:center"><a href="" target="_blank"><img src=""></a></div>
+<%- include('../elements/list-body-list-category',{data: data}); %>
+</div></div>
+<div class="ad" data-momolistad data-devicedetect="tablet desktop" data-momolistaddivid="video-main-list" data-momolistadsizes="728x90 320x100" data-containerstyle="margin: 0;padding: 0;text-align:center"></div>

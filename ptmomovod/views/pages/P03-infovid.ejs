@@ -1,0 +1,134 @@
+<div class="container" itemscope itemtype="http://schema.org/Movie">
+	<div class="row" itemprop="url" content="https://www.momovod.com/vod-detail-id-111528.html">
+		<div class="hy-main-content">
+			<div class="main-content">
+				<div class="hy-video-details clearfix">
+					<div class="item clearfix">
+						<dl class="content">
+							<dt itemprop="image" content="<%= data.info.image %>"><img class="sr-only" alt="<%= data.info.title %>" src="<%= data.info.image %>"><a role="img" aria-label="<%= data.info.title %>" class="videopic" href="#list1" style="background: url(<%= data.info.image %>) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="note textbg"><%= data.info.title %></span></a></dt>
+							<dd class="clearfix">
+								<div class="head">
+									<h3 itemprop="name"><%= data.info.title %></h3>
+								</div>
+								<ul>
+									<li class="one hidden-sm hidden-xs"><span class="text-muted">更新：</span>2019-11-12</li>
+									<li class="one">
+										<span class="text-muted">主演：</span>
+										<% data.info.cast[0].name.forEach(function(item) { %>
+										<a target='_blank' href='/vod-search-starring-<%= encodeURI(item) %>.html' itemprop="actors" content="<%= item %>"><%= item %></a>&nbsp;
+										<% }) %>
+									</li>
+									<li>
+										<span class="text-muted" itemprop="director" content="大衛·雷奇">導演：</span>
+										<% data.info.manager[0].name.forEach(function(item) { %>
+										<a target='_blank' href='/vod-search-directed-<%= encodeURI(item) %>.html'><%= item %></a>&nbsp;
+										<% }) %>
+									</li>
+									<li class="col-md-6 col-sm-6 hidden-xs padding-0">
+										<span class="text-muted">地區：</span>
+										<a target='_blank' href='/vod-search-area-<%= encodeURI(data.info.area) %>.html'><%= data.info.area %></a>&nbsp;
+									</li>
+									<li class="col-md-6 col-sm-6 hidden-xs padding-0">
+										<span class="text-muted">類型：</span>
+										<a href="/vod-type-id-<%= data.info.idcategory %>-pg-1.html"><%= data.info.category %></a>
+									</li>
+									<li class="col-md-6 padding-0"><span class="text-muted">年份：</span><%= data.info.released %></li>
+									<li class="col-md-6 padding-0"><a target="_self" href="javascript:void(0)" class="iconfont icon-good digg_vodup"> 讚 <span class="digg-num">0</span> </a><a target="_self" href="javascript:void(0)" class="iconfont icon-bad digg_voddown"> 踩 <span class="digg-num">0</span> </a></li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="container share-container visible-sm">
+					<div class="fb-container">
+						<div id="shareBtn"><img src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://www.momovod.com/images/socials/fb.png"></div>
+					</div>
+					<div class="line-container" title="可將此頁面的資訊分享至LINE。"><a href="http://line.me/R/msg/text/?https://www.momovod.com/vod-detail-id-111528.html?utm_source=web&utm_medium=line_share&utm_campaign=site_share" title="分享"><img src="https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://www.momovod.com/images/socials/line.png"></a></div>
+					<script type="8d6881a18eb8d583a3afcaa5-text/javascript"> document.getElementById('shareBtn').onclick = function() { FB.ui({ method: 'share', display: 'popup', href: 'https://www.momovod.com/vod-detail-id-111528.html?utm_source=web&utm_medium=fb_share&utm_campaign=site_share', }, function(response){}); } </script>
+				</div>
+				<div class="hy-layout active clearfix">
+					<div class="hy-switch-tabs">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#list1" data-toggle="tab">播放路線</a></li>
+							<li><a href="#list3" data-toggle="tab">劇情介紹</a></li>
+							<li><a href="#list4" data-toggle="tab" class="fb-comment-taba">影片討論</a><span class="fb-comment-count hide"></span></li>
+						</ul>
+					</div>
+					<div class="tab-content">
+						<div class="hy-play-list tab-pane fade in active" id="list1">
+							<div class="item tyui" id="playlist">
+								<% var num = 1; %>
+								<% data.info.chanel.forEach(function(item) { %>
+								<div class="panel clearfix">
+									<a class="option" data-toggle="collapse" data-parent="#playlist" href="#playlist<%= num %>" data-player="yjm3u8">線上看<%= num %><span class="text-muted pull-right"><span><%= item.server[item.server.length-1] %></span><i class="icon iconfont icon-right"></i></span></a>
+									<div id="playlist<%= num %>" class="playlist collapse">
+										<ul class="playlistlink-<%= num %> list-15256 clearfix">
+											<% var numi = item.server.length; %>
+											<% item.server.reverse().forEach(function(i) { %>
+											<li><a title='<%= i %>' href='/vod-play-id-<%= data.info.key %>-src-<%= num %>-num-<%= numi %>.html' target="_blank"><%= i %></a></li>
+											<% numi-- %>
+											<% }) %>
+										</ul>
+									</div>
+								</div>
+								<% num++ %>
+								<% }) %>
+							</div>
+						</div>
+						<div class="hy-play-list tab-pane fade in" id="list3">
+							<div class="item">
+								<div class="plot" itemprop="description"><%= data.info.description %></div>
+							</div>
+						</div>
+						<div class="hy-play-list tab-pane fade in" id="list4">
+							<div class="fb-comments" data-href="https://www.momovod.com/vod-detail-id-111528.html" data-numposts="10" data-width="100%" data-order-by="reverse_time"></div>
+						</div>
+					</div>
+				</div>
+				<div class="ad momo-ad-row" data-momoad data-sizeall="728x90 300x250"></div>
+				<%- include('../elements/conveyor-group-02',{title: '猜你喜歡', data: ''}); %>
+				<div class="ad momo-ad-row" data-momoad data-sizeall="728x90 320x100"></div>
+				<div class="ad momo-ad-row hide" data-momoad data-adprovider="adtrue" data-sizeall="728x90 320x100" data-containerstyle="margin-top: 20px;"></div>
+				<%- include('../elements/conveyor-group-02',{title: '大家都在看', data: ''}); %>
+				<div class="ad momo-ad-row hide" data-momoad data-adprovider="adtrue" data-sizeall="728x90 320x100"></div>
+				<div class="ad momo-ad-row" data-momoad data-sizeall="728x90 300x250" data-containerstyle="margin-top: 20px;"></div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-12 hy-main-side hidden-sm hidden-xs">
+			<div class="ad momo-ad-row" data-momoad data-sizeall="300x250" data-containerstyle="padding: 0;margin-top: 20px"></div>
+			<div class="hy-layout clearfix">
+				<div class="hy-details-qrcode side clearfix hide">
+					<div class="item">
+						<h5 class="text-muted">扫一扫用手机观看</h5>
+						<p></p>
+						<p class="text-muted">分享到朋友圈</p>
+					</div>
+				</div>
+				<div class="hy-video-ranking side clearfix">
+					<div class="head">
+						<a class="text-muted pull-right" href="/label-new.html">更多<i class="icon iconfont icon-right"></i></a>
+						<h4><i class="icon iconfont icon-top text-color"></i>動作片排行榜</h4>
+					</div>
+					<div class="item">
+						<ul class="clearfix"><% for (var i = 1; i <= 20; i++) { %>
+							<li class="text-overflow">
+								<span class="pull-right text-color hide">5.0</span>
+								<a href="/vod-detail-id-105245.html" title="X戰警：黑鳳凰"><% if(i <= 3){ %><em class="number active"><% } else { %><em class="number"><% } %><%- i %></em>X戰警：黑鳳凰</a>
+							</li><% } %>
+						</ul>
+					</div>
+				</div>
+				<div class="hy-video-list side clearfix hide">
+					<div class="head">
+						<a class="pull-right text-muted" href="/vod-topicindex-pg-.html">更多<i class="icon iconfont icon-right"></i></a>
+						<h4>推薦專題</h4>
+					</div>
+					<div class="item">
+						<ul class="clearfix"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="ad momo-ad-row" data-momoad data-sizeall="300x600"></div>
+		</div>
+	</div>
+</div>

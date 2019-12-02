@@ -1,0 +1,30 @@
+<% if (pg.pages > 0) { %>
+<div class="hy-page clearfix">
+	共<%= pg.current %>条數據&nbsp;當前:1/<%= pg.pages %>頁&nbsp;
+	<% if (pg.current != 1 && pg.current > 1) { %>
+	<a target="_self" href="/vod-<%= pgtype %>-id-<%= pg.idpage %>-pg-1<%= pg.url %>" class="pagelink_a">首頁</a>&nbsp;
+	<% } else { %>
+	<em>首頁</em>&nbsp;
+	<% } %>
+	<% var i = (Number(pg.current) > 2 ? Number(pg.current) - 1 : 1) %>
+	<% if (i !== 1 && i > 1) { %>
+	<a target="_self" href="/vod-<%= pgtype %>-id-<%= pg.idpage %>-pg-1<%= pg.url %>" class="pagelink_a">上一頁</a>&nbsp;
+	<% } else { %>
+	<em>上一頁</em>&nbsp;
+	<% } %>
+	<% for (; i <= (Number(pg.current) + 6) && i <= pg.pages; i++) { %>
+	<% if (i == pg.current) { %>
+	<span class="pagenow"><%= i %></span>&nbsp;
+	<% } else { %>
+	<a target="_self" class="pagelink_b" href="/vod-<%= pgtype %>-id-<%= pg.idpage %>-pg-<%= i %><%= pg.url %>"><%= i %></a>&nbsp;
+	<% } %>
+	<% } %>
+	<% if (pg.current != pg.pages && pg.current <= pg.pages) { %>
+	<% var j = (Number(pg.current)) + 1 %>
+	<a target="_self" href="/vod-<%= pgtype %>-id-<%= pg.idpage %>-pg-<%= j %><%= pg.url %>" class="pagelink_a">下一頁</a>&nbsp;
+	<a target="_self" href="/vod-<%= pgtype %>-id-<%= pg.idpage %>-pg-<%= pg.pages %><%= pg.url %>" class="pagelink_a">尾頁</a>&nbsp;
+	<input type="input" name="page" id="page" size="4" class="pagego" />
+	<input type="button" value="跳 轉" onclick="if (!window.__cfRLUnblockHandlers) return false; pagego('/vod-<%= pgtype %>-id-1-pg-{pg}.html',<%= pg.pages %>)" class="pagebtn" data="" />
+	<% } %>
+</div>
+<% } %>

@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="ad momo-ad-row" data-momoad data-sizeall="728x90 320x100"></div>
+	<div class="row">
+		<% if(typeof datas != 'undefined' && datas) { %>
+		<% var i = 1; %>
+		<% datas.forEach(function(item){ %>
+	    <div class="hy-layout clearfix num-<%= i %>" id="list-<%= item.id %>">
+		<%- include('../elements/list-body-list-top',{title: item.name, url: 'vod-list-id-'+item.id+'.html', datavid:item.datavid, datatxt:item.datatxt}); %>
+		</div>
+		<% i++; %>
+		<% }) %>
+		<% } %>
+	</div>
+</div>

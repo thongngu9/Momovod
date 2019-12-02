@@ -1,0 +1,19 @@
+<div class="hy-video-list cleafix">
+	<div class="head">
+		<a class="text-muted pull-right" href="/<%= (typeof url != "undefined" ? url : "") %>">更多<i class="icon iconfont icon-right"></i></a>
+		<h4><i class="icon iconfont icon-top text-color"></i><%= (typeof title != "undefined" ? title : "") %></h4>
+	</div>
+	<div class="item">
+		<% if(typeof datavid != 'undefined') { %>
+		<% datavid.forEach(function(item) { %>
+		<div class="col-md-2 col-sm-3 col-xs-4">
+			<a class="videopic lazy" href="/vod-detail-id-<%= item.key %>.html" title="<%= item.title %>" data-original="<%= item.image %>" style="background: url(https://www.momovod.com/template/nec/i/img/load.gif) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score"><%= item.format %></span></a>
+			<div class="title">
+				<h5 class="text-overflow"><a href="/vod-detail-id-<%= item.key %>.html"><%= item.title %></a></h5>
+			</div>
+			<div class="subtitle text-muted text-muted text-overflow hidden-xs"><%= item.cast[0].name %></div>
+		</div>
+		<% })} %>
+	</div>
+</div>
+<% if(typeof datatxt != 'undefined') { %><%- include('./list-body-similar',{datatxt:datatxt}); %><% } %>

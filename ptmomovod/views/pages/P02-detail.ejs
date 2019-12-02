@@ -1,0 +1,104 @@
+<div class="container">
+	<div class="row">
+		<% if(typeof cate != 'undefined' && cate) { %>
+		<div class="hy-cascade clearfix">
+			<div class="left-head hidden-sm hidden-xs">
+				<ul class="clearfix">
+					<li class="text"><span class="text-muted">選擇频道</span></li>
+					<% cate.forEach(function(item){ %>
+						<% if(typeof active != "undefined" && active == item._id) { %>
+						<li><a href="vod-list-id-<%= item._id %>.html" class="active"><%= item.title %></a></li>
+						<% } else { %>
+						<li><a href="vod-list-id-<%= item._id %>.html"><%= item.title %></a></li>
+						<% } %>
+					<% }) %>
+				</ul>
+			</div>
+			<div class="content-meun clearfix">
+				<a class="head" href="javascript:;" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+					<span class="text">已選擇</span>
+					<span><%= menu.active.name %></span>
+					<span></span>
+					<span><%= menu.active.area %></span>
+					<span><%= menu.active.year %></span>
+					<span></span>
+					<span class="hidden-xs"></span>
+				</a>
+				<div class="item collapse in" id="collapse" aria-expanded="false">
+					<ul class="clearfix">
+						<li class="text"><span class="text-muted">按頻道</span></li>
+						<% if(menu.active.id == menu.cate._id){ %>
+						<li><a href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html" class="active">全部</a></li>
+						<% } else { %>
+						<li><a href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html">全部</a></li>
+						<% } %>
+
+						<% menu.cate.list.forEach(function(item){ %>
+						<% if(menu.active.id == item.id){ %>
+						<li><a href="/vod-list-id-<%= item.id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html" class="active"><%= item.name %></a></li>
+						<% } else { %>
+						<li><a href="/vod-list-id-<%= item.id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html"><%= item.name %></a></li>
+						<% } %>
+						
+						<% }) %>
+					</ul>
+					<% if(menu.area[0] != null) {%>
+					<ul class="clearfix">
+						<li class="text"><span class="text-muted">按地區</span></li>
+						<% if(menu.active.area == ''){ %>
+						<li><a class="active" href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area--lang-.html">全部</a></li>
+						<% } else { %>
+						<li><a href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area--lang-.html">全部</a></li>
+						<% } %>
+
+						<% menu.area.forEach(function(item){ %>
+						<% if(menu.active.area == item.name){ %>
+						<li><a class="active" href="/vod-list-id-<%= menu.active.id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area-<%= item.url %>-lang-.html"><%= item.name %></a></li>
+						<% } else {%>
+						<li><a href="/vod-list-id-<%= menu.active.id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= menu.active.year %>-letter--area-<%= item.url %>-lang-.html"><%= item.name %></a></li>
+						<% } %>
+						<% }) %>
+					</ul>
+					<% } %>
+					<ul class="clearfix">
+						<li class="text"><span class="text-muted">按年份</span></li>
+						<% if(menu.active.year == ''){ %>
+						<li><a href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-<%= menu.active.sort %>-class--year--letter--area-<%= menu.active.area %>-lang-.html" class="active">全部</a></li>
+						<% } else { %>
+						<li><a href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-<%= menu.active.sort %>-class--year--letter--area-<%= menu.active.area %>-lang-.html">全部</a></li>
+						<% } %>
+
+						<% menu.year.forEach(function(item){ %>
+						<% if(menu.active.year == item){ %>
+						<li><a href="/vod-list-id-<%= menu.active.id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= item %>-letter--area-<%= menu.active.area %>-lang-.html" class="active" data="year-<%= item %>"><%= item %></a></li>
+						<% } else { %>
+						<li><a href="/vod-list-id-<%= menu.active.id %>-pg-1-order--by-<%= menu.active.sort %>-class--year-<%= item %>-letter--area-<%= menu.active.area %>-lang-.html" data="year-<%= item %>"><%= item %></a></li>
+						<% } %>
+						<% }) %>
+					</ul>
+					<ul class="clearfix">
+						<li class="text"><span class="text-muted">按排序</span></li>
+						<% if(menu.active.sort == 'time'){ %>
+						<li><a class="active" href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-time-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html">更新</a></li>
+						<% } else { %>
+						<li><a href="/vod-list-id-<%= menu.cate._id %>-pg-1-order--by-time-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html">更新</a></li>
+						<% } %>
+
+						<% menu.sort.forEach(function(item){ %><% if(menu.active.sort == item.url){ %>
+						<li><a class="active" href="/vod-list-id-<%= menu.active.id %>-pg-1-order--by-<%= item.url %>-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html"><%= item.name %></a></li>
+						<% } else { %>
+						<li><a href="/vod-list-id-<%= menu.active.id %>-pg-1-order--by-<%= item.url %>-class--year-<%= menu.active.year %>-letter--area-<%= menu.active.area %>-lang-.html"><%= item.name %></a></li>
+						<% } %><% }) %>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<% } %>
+		<div class="ad momo-ad-row top-ad" data-momoad data-sizeall="728x90 320x100"></div>
+		<div class="ja-guanggao jav-link" style="display:none;padding: 0;margin-top: 5px;text-align:center"><a href="" target="_blank"><img src=""></a></div>
+		<% if(typeof data != 'undefined' && data) { %>
+		<%- include('../elements/list-body-list-category',{data: data}); %>
+		<% } %>
+	</div>
+</div>
+<div class="ad" data-momolistad data-momolistaddivid="video-main-list" data-momolistadsizes="728x90 320x100" data-containerstyle="margin:0;padding: 0;text-align:center"></div>

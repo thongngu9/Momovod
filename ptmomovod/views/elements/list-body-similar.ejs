@@ -1,0 +1,12 @@
+<div class="hy-video-text-list hidden-xs clearfix">
+	<div class="item">
+		<ul class="clearfix">
+			<% if(typeof datatxt != 'undefined' && datatxt) { %>
+			<% datatxt.forEach(function(item) { %>
+		    <li>
+				<div class="title text-overflow"><a href="/vod-detail-id-<%= item.key %>.html" title="<%= item.title %>"><span class="pull-right"><i class="icon iconfont icon-right text-muted"></i></span><%= item.title %></a></div>
+			</li>
+			<% })} %>
+		</ul>
+	</div>
+</div>

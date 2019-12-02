@@ -1,0 +1,10 @@
+<div class="hy-layout clearfix">
+	<div class="hy-video-list">
+		<div class="hy-video-head">
+			<a class="text-muted pull-right hide" href="vod-list-id-5.html">更多<i class="icon iconfont icon-right"></i></a>
+			<h3 class="margin-0"><%= (typeof title != "undefined" ? title : "") %></h3>
+		</div>
+		<%- include('./list-body-conveyor'); %>
+		<%- include('./list-body-similar',{datatxt:''}); %>
+	</div>
+</div>

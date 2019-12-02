@@ -1,0 +1,20 @@
+<div class="hy-layout clearfix" id="lista">
+	<div class="hy-switch-tabs active clearfix"><span class="text-muted pull-right hidden-xs">共有<span class="text-color">“<%- (typeof total != "undefined" ? total : "") %>”</span>個影片,當前第<span class="text-color">“<%- (typeof page != "undefined" ? page : "") %>”</span>頁</span></div>
+	<div class="hy-video-list">
+		<div class="item tab-content">
+			<ul class="clearfix tab-pane fade in active" id="video-main-list">
+				<% if(typeof data != 'undefined' && data) { %><% data.forEach(function(item){ %><li class="col-md-2 col-sm-3 col-xs-4">
+					<a class="videopic lazy" href="<%= item.titleurl %>" title="<%= item.title %>" data-original="<%= item.image %>" style="background: url(https://www.momovod.com/template/nec/i/img/load.gif) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score"><%= item.format %></span></a>
+					<div class="title">
+						<h5 class="text-overflow"><a href="<%= item.titleurl %>"><%= item.title %></a></h5>
+					</div>
+					<div class="subtitle text-muted text-overflow hidden-xs"><%= item.cast[0].name %></div>
+				</li><% }) %><% } %>
+			</ul>
+		</div>
+	</div>
+	<div class="ad momo-ad-row" data-momoad data-sizeall="728x90 300x250" data-containerstyle="padding: 0;margin-top: 10px; margin-bottom: -10px;text-align:center"></div>
+	<% if(typeof pgnate != "undefined" && pgnate) { %>
+	<%- include('./list-body-pagination-category',{pgtype:urltye, pg:pgnate}) %>
+	<% } %>
+</div>

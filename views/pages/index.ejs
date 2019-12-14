@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<div class="hy-layout clearfix">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="index-swiper swiper-container hy-slide">
+					<% if(typeof imgdata != 'undefined' && imgdata) { %>
+					<%- include('../elements/banner-conveyor', {data: imgdata}); %>
+					<% } %>
+				</div>
+			</div>
+		</div>
+		<% if(typeof tops != 'undefined' && tops) { %><% let num=1; %><% tops.forEach((i)=>{ %><%- include('../elements/list-body-list',{title:i.title, url: '/vod-list-id-'+i.id+'.html', data:i.data}); %><% if(num<4){ %><div class="ad momo-ad-row top-ad" data-momoad data-sizeall="970x250 728x90 300x250" data-containerstyle="text-align:center"></div><% } %><% num++; %><% })} %>
+	</div>
+</div>

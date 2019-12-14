@@ -1,0 +1,30 @@
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FNSKJ5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div id="fb-root"></div>
+<script type="text/javascript">(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.1&appId=350580762103396&autoLogAppEvents=1';
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<style> @media (max-width: 767px) { .search-box { width: 75%; } }</style>
+<div class="hy-head-menu ">
+<div class="container">
+<div class="row">
+<div class="item">
+<div class="logo pull-left">
+<a class="hidden-sm hidden-xs" href="/"><img src="https://www.momovod.com/template/nec/i/img/logo.png?v=20181109" width="145" height="50"></a>
+<a class="visible-sm visible-xs" href="/"><img src="https://www.momovod.com/template/nec/i/img/logo_min.png?v=20181109" width="77" height="30"></a>
+</div>
+<div class="search pull-right hidden-sm">
+<form name="formsearch" id="formsearch" action='/vod-search.html' method="get" autocomplete="off">
+<input id="search-input" class="search-box form-control" placeholder="輸入影片關鍵字..." name="wd" type="text" id="wd" required="">
+<input type="submit" id="searchbutton" value="" class="hide"><a href="javascript:" class="btns" title="搜尋" onClick="if (!window.__cfRLUnblockHandlers) return false; $('#formsearch').submit();" data-cf-modified-5c646632db7362350aec5f2d-=""><i class="icon iconfont icon-search"></i></a></form>
+</div>
+<ul class="menulist hidden-xs">
+<% if(typeof active != "undefined" && active) { %><li><% } else { %><li class="active"><% } %><a href="/">首頁</a></li><% if(typeof cate != 'undefined' && cate) { %><% cate.forEach(function(item){ %><% if(typeof active != "undefined" && active == item._id) { %><li class="active"><% } else { %><li><% } %><a href="<%= item.titleurl %>"> <%= item.title %></a></li><% }) %><% } %>
+</ul>
+</div>
+</div>
+</div>
+</div>

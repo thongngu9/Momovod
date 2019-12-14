@@ -360,7 +360,7 @@ router.get('/vod-play-id-:url', function(req, res, next) {
 
 router.get("/file/cover/:imageurl*", function(req, res, next){
 	var url = req.params.imageurl+req.params[0];
-	var proxy = 'socks5://127.0.0.1:5000';
+	var proxy = `socks5://localhost:${localPort}`;
 	var agent = new SocksProxyAgent(proxy);
 	var options = {
 		agent: agent,
